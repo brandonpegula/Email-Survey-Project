@@ -12,8 +12,9 @@ class Header extends Component {
                 return <li><a href="/auth/google">Login with Google</a></li>
             default:
                 return [
-                <li><Payments /></li>,
-                <li><a href="/api/logout">Logout</a></li>
+                <li key="1"><Payments /></li>,
+                <li key="3" style={{ margin: "0 15px" }}> Credits: {this.props.auth.credits}</li>,
+                <li key="2"><a href="/api/logout">Logout</a></li>
             ];
         }
     }
@@ -26,7 +27,7 @@ class Header extends Component {
                 to={this.props.auth ? '/destinations' : '/'} 
                 className="left brand-logo"
                 >
-                    Commuter
+                    Surved
                 </Link>
                 <ul className="right">
                     {this.renderContent()}
